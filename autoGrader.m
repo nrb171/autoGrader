@@ -4,7 +4,7 @@
 % deductions and return the total for each file. Then write a file with the
 
 
-rootdir = '/rita/s0/nrb171/teaching/meteo273sp23/assignment4/submissions';
+rootdir = '/rita/s0/nrb171/teaching/meteo273/SP24/exercise1/StudentSubmissions/';
 folderList = dir(fullfile(rootdir, '**/*.*'));  %get list of files and folders in any subfolder
 folderList = {folderList.folder}
 %convert folderlist into string array
@@ -47,7 +47,7 @@ function [] = gradeFiles(pwd, rootdir)
     % Write the total to a file
     if total <= 0
         name=strsplit(pwd,"/");
-        name=name(9);
+        name=name(end-1);
         disp(name+", "+ string(100+total)+", "+strjoin(string(total2) + ", , "))
         writeTotal(string(100+round(total,2)));
     end
@@ -87,9 +87,11 @@ function [num] = getNum(line)
     % Get the index of the second parenthesis
     index2 = strfind(line, ')');
 
-    if index || index2 == 0
-        print(line)
-        raise("No parenthesis found")
+    if isempty(index) || isempty(index2) 
+        fprintf(line)
+        warning("No parenthesis found")
+        num = 0;
+        return
     end
     % Get the number in the parentheses
     num = str2num(line(index+1:index2-1));

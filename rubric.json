@@ -1,0 +1,44 @@
+{
+    "grammar/syntax": {
+        "pointMin": -0.25,
+        "pointMax": -1,
+        "description": "User-facing syntax/grammar issues."
+    },
+    "typeMishanding": {
+        "pointMin": -0.25,
+        "pointMax": -1,
+        "description": "Poorly handled class/type manipulation."
+    },
+    "error": {
+        "pointMin": -3,
+        "pointMax": -6,
+        "description": "Errors in the code."
+    },
+    "redundancy": {
+        "pointMin": -0.25,
+        "pointMax": -0.25,
+        "description": "Redundant code."
+    },
+    "missingDisplay": {
+        "pointMin": -5,
+        "pointMax": -8,
+        "description": "Missing display of information."
+    },
+    "missingStep": {
+        "pointMin": -2,
+        "pointMax": -4,
+        "description": "Missing step in the algorithm."
+    },
+    "logicError": {
+        "pointMin": -2,
+        "pointMax": -5,
+        "description": "Logic error in the code."
+    },
+    "missingUnits": {
+        "pointMin": -2,
+        "pointMax": -2,
+        "description": "Missing units."
+    },
+
+    
+}
