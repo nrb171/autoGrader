@@ -10,7 +10,7 @@ folderList = {folderList.folder}
 %convert folderlist into string array
 folderList = string(folderList);
 folderList = unique(folderList); %remove duplicates
-folderList = folderList(3:end); %remove . and ..
+folderList = folderList(2:end); %remove . and ..
 
 %loop through all folders
 for folder = folderList
