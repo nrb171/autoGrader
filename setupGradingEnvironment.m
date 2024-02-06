@@ -1,8 +1,5 @@
 %Create the grading environment based on files in the submittedAssignments folder
 
-
-assignmentNum = 5;
-
 %find the files in the submission folder
 folder = input("Enter the path to the submissions folder: ", 's');
 folder = string(folder);
@@ -28,13 +25,36 @@ for file = files
 
     % ---------------------------- unzip the file ---------------------------- %
     if contains(char(file), ".zip")
-        %unzip the file
-        unzip(folder + file, folder + name);
-        %delete the zip file
-        delete(folder + file);
+        try
+            %unzip the file
+            unzip(folder + file, folder + name);
+            %delete the zip file
+            delete(folder + file);
+        catch
+            disp("Error unzipping " + file);
+        end
     elseif contains(char(file), ".m")
         %move the file to the folder
         movefile(folder + file, folder + name);
         delete(folder + file);
-    end
+    end                                                   
 end
+
+%% Check for subsubfolders 
+subfolders = dir(folder);
+subfolders = string({subfolders.name});
+for subfolder = subfolders
+    if subfolder == "." || subfolder == ".." || subfolder == ".DS_Store"
+        continue
+    end
+    subfiles = dir(folder + subfolder+"/**/*.m*");
+    for ii = 1:length(subfiles)
+        if subfiles(ii).folder == folder + subfolder
+            continue
+        end
+        movefile(subfiles(ii).folder + "/" + subfiles(ii).name, folder + subfolder);
+    end
+
+end
+    
+    
