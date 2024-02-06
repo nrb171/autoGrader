@@ -1,6 +1,5 @@
-%Create the folders based off the files in the assignments folder
+%Create the grading environment based on files in the submittedAssignments folder
 
-%unzip all of the files in the assignments folder
 
 assignmentNum = 5;
 
