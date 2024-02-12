@@ -14,3 +14,6 @@ When grading, mark deductions starting on a new line with `%!`. End the line wit
 
 ## `prepareForReturn.m`
 This script will take the graded submissions and prepare them for return to the students. It will zip each graded student's submission and place it in a directory called "GradedSubmissions".
+
+## `rubric.json`
+Contains a list of common programming errors and the associated ranges for point deductions. This will be updated as different issues are found.
