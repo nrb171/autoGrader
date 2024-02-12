@@ -1,8 +1,15 @@
-% goes through all children directories and analyzes every line in the file.
-% Those that start with "%!" are the beginning of point deductions the number
-% within the "()" is the deduction. Add up these
-% deductions and return the total for each file. Then write a file with the
-
+% autoGrader.m
+%
+% To use this script, specify the root directory where the student submissions are located in the "rootdir" variable.
+% The script will search for .m files in the specified directory and its subdirectories,
+% calculate the total score for each file, and write the scores to the "total.txt" file in each subdirectory.
+%
+% Example usage:
+% rootdir = '/rita/s0/nrb171/teaching/meteo273/SP24/exercise1/StudentSubmissions/';
+% autoGrader(rootdir);
+%
+% Note: This script assumes that the reductions containing the numbers to be totalled are in the format "%! (number)".
+% If the comments have a different format, the getNum function will need to be modified.
 
 rootdir = '/rita/s0/nrb171/teaching/meteo273/SP24/exercise1/StudentSubmissions/';
 folderList = dir(fullfile(rootdir, '**/*.*'));  %get list of files and folders in any subfolder

@@ -1,7 +1,20 @@
-%Create the grading environment based on files in the submittedAssignments folder
+% setupGradingEnvironment.m
+%
+% This script sets up the grading environment by performing the following steps:
+% 1. Prompts the user to enter the path to the submissions folder.
+% 2. Iterates through the files in the submissions folder.
+% 3. Skips files that are not zip or m files.
+% 4. Creates a folder for each submission.
+% 5. Unzips zip files and moves m files to the respective submission folder.
+% 6. Checks for subfolders within the submissions folder.
+% 7. Moves any m files found in subfolders to the respective subfolder within the submissions folder.
+% The studentSubmissions folder should be organized as follows:
+% studentSubmissions
+% ??? student1.zip 
+% or
+% ??? student2/studentFiles*.m
 
-%find the files in the submission folder
-folder = input("Enter the path to the submissions folder: ", 's');
+folder = '/rita/s0/nrb171/teaching/meteo273/SP24/exercise2/StudentSubmissions/'
 folder = string(folder);
 
 files = dir(folder);
