@@ -10,11 +10,11 @@
 % 7. Moves any m files found in subfolders to the respective subfolder within the submissions folder.
 % The studentSubmissions folder should be organized as follows:
 % studentSubmissions
-% ??? student1.zip 
-% or
-% ??? student2/studentFiles*.m
+% |-- student1.zip
+% |-- student2/studentFiles*.m
 
-folder = '/rita/s0/nrb171/teaching/meteo273/SP24/exercise2/StudentSubmissions/'
+
+folder = '/rita/s0/nrb171/teaching/meteo273/SP24/midterm/StudentSubmissions/'
 folder = string(folder);
 
 files = dir(folder);

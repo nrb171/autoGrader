@@ -12,8 +12,8 @@
 %   prepareForReturn(submissionDirectory, outDirectory);
 %
 % Author: Nicholas Barron
-submissionDirectory = "/rita/s0/nrb171/teaching/meteo273/SP24/exercise1/StudentSubmissions/"
-outDirectory = "/rita/s0/nrb171/teaching/meteo273/SP24/exercise1/GradedSubmissions/"
+submissionDirectory = "/rita/s0/nrb171/teaching/meteo273/SP24/midterm/StudentSubmissions/";
+outDirectory = "/rita/s0/nrb171/teaching/meteo273/SP24/midterm/GradedSubmissions/";
 
 if ~isdir(outDirectory)
     mkdir(outDirectory)

@@ -11,7 +11,7 @@
 % Note: This script assumes that the reductions containing the numbers to be totalled are in the format "%! (number)".
 % If the comments have a different format, the getNum function will need to be modified.
 
-rootdir = '/rita/s0/nrb171/teaching/meteo273/SP24/exercise1/StudentSubmissions/';
+rootdir = '/rita/s0/nrb171/teaching/meteo273/SP24/midterm/StudentSubmissions/';
 folderList = dir(fullfile(rootdir, '**/*.*'));  %get list of files and folders in any subfolder
 folderList = {folderList.folder}
 %convert folderlist into string array
@@ -19,15 +19,17 @@ folderList = string(folderList);
 folderList = unique(folderList); %remove duplicates
 folderList = folderList(2:end); %remove . and ..
 
+
+grades.names = [];
+grades.grades = [];
 %loop through all folders
 for folder = folderList
-    gradeFiles(folder+"/", rootdir);
+
+    grades = gradeFiles(folder+"/", rootdir, grades);
 end
 
-
-
 % This is the main function that calls the other functions
-function [] = gradeFiles(pwd, rootdir)
+function [grades] = gradeFiles(pwd, rootdir, grades)
     % Get the list of all files in the current directory
     cd (pwd);
 
@@ -57,6 +59,9 @@ function [] = gradeFiles(pwd, rootdir)
         name=name(end-1);
         disp(name+", "+ string(100+total)+", "+strjoin(string(total2) + ", , "))
         writeTotal(string(100+round(total,2)));
+
+        grades.names = [grades.names; name];
+        grades.grades = [grades.grades; 100+round(total,2)];
     end
 
     cd (rootdir);
@@ -82,7 +87,8 @@ function [total] = gradeFile(fileName)
             total = total + num;
         end
     end
-    %disp(fileName+", "+ string(total))
+    %disp(fileName)
+    %disp(string(total))
     % Close the file
     fclose(file);
 end
