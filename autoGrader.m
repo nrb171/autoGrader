@@ -24,7 +24,6 @@ grades.names = [];
 grades.grades = [];
 %loop through all folders
 for folder = folderList
-
     grades = gradeFiles(folder+"/", rootdir, grades);
 end
 
